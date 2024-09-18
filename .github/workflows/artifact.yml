@@ -24,15 +24,9 @@ jobs:
     needs: build
     steps:
       - name: download file
-        uses: actions/upload-artifact@v4
+        uses: actions/download-artifact@v4
         with:
           name: hello-artifact
-          path: ./artifacts
-      - name: test
-        run: ls
-      - name: test-artifact
-        run: |
-          cd artifacts
-          ls      
+          path: ./artifacts  
       - name: display hello
         run: cat ./artifacts/hello.txt 
